@@ -3,6 +3,7 @@ package fr.univbrest.dosi.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ import fr.univbrest.dosi.business.FormationBusiness;
 
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5500", maxAge=3600)
 @RequestMapping("/formations")
 public class FormationController {
 	
@@ -39,4 +41,8 @@ public class FormationController {
 		return business.rechercheFormationParNom(nom);
 	}
 
+	@RequestMapping(value="/{id}", method=RequestMethod.GET)
+	public Formation recupererLaFormationAvecID(@PathVariable String id) {
+		return business.rechercheFormationParId(id);
+	}
 }

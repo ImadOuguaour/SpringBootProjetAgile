@@ -39,5 +39,11 @@ public class FormationBusinessJPA implements FormationBusiness {
 		return formationRepository.findByNomFormation(nom);
 	}
 
+	@Override
+	public Formation rechercheFormationParId(String id) {
+		// TODO Auto-generated method stub
+		return formationRepository.findOne(id);
+	}
+
 	
 }

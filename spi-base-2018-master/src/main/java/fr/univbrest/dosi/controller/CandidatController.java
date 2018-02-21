@@ -3,6 +3,7 @@ package fr.univbrest.dosi.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import fr.univbrest.dosi.beans.Candidat;
 import fr.univbrest.dosi.business.CandidatBusiness;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5500", maxAge=3600)
 @RequestMapping("/candidats")
 public class CandidatController {
 
